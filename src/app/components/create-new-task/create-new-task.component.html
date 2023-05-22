@@ -1,0 +1,18 @@
+<form #newTaskForm="ngForm" (ngSubmit)="newTaskForm.valid && addNewTask()">
+
+    <label for="name">Nom de la tache : </label>
+    <input id="name" type="text" name="name" [(ngModel)]="taskToAdd.name"><br>
+    
+    <label for="description">Description : </label>
+    <input id="description" type="text" name="description" [(ngModel)]="taskToAdd.description"><br>
+    
+    <label for="category">Catégorie : </label>
+    <input id="category" type="text" name="category" [(ngModel)]="taskToAdd.category"><br>
+    
+    <label for="deadLine"> A effectuer avant : </label>
+    <input id="deadLine" type="date" name="deadLine" [(ngModel)]="taskToAdd.deadLine"><br>
+
+    <button type="submit">Envoyer !</button>
+</form>
+
+<app-back-to-home></app-back-to-home>
