@@ -20,5 +20,4 @@ export class WeekGridComponent {
         this.day.push(1 + i);
       }
   }
-
 }

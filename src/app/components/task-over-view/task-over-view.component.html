@@ -1,7 +1,8 @@
 <div class="container-fluid red">
-    <p *ngFor="let task of taskList">
+    <a [routerLink]="['/details/',task.id]"
+    *ngFor="let task of taskList">
         {{task.name}}
-    </p>
+    </a>
 </div>
 <app-week-grid></app-week-grid>
 

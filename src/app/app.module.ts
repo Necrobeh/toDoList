@@ -9,6 +9,7 @@ import { CreateNewTaskComponent } from './components/create-new-task/create-new-
 import { BackToHomeComponent } from './components/back-to-home/back-to-home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WeekGridComponent } from './components/week-grid/week-grid.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WeekGridComponent } from './components/week-grid/week-grid.component';
     TaskOverViewComponent,
     CreateNewTaskComponent,
     BackToHomeComponent,
-    WeekGridComponent
+    WeekGridComponent,
+    TaskDetailsComponent
   ],
   imports: [
     BrowserModule,

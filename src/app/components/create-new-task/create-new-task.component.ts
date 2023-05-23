@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from 'src/app/models/task.model';
 import { TaskManagementService } from 'src/app/services/task-management.service';
 
@@ -10,13 +11,13 @@ import { TaskManagementService } from 'src/app/services/task-management.service'
 export class CreateNewTaskComponent {
 
   taskToAdd: Task =
-    new Task(0, '', '', '', 'stand by', 'medium', new Date(), new Date(), new Date(), '', '')
+    new Task(0, '', '', '', 'en attente', 'moyenne', new Date(), new Date(), new Date(), '', '')
 
-  constructor(private taskS: TaskManagementService) { }
+  constructor(private taskS: TaskManagementService, private route : Router) { }
 
   addNewTask(): void {
     this.taskS.addNewTask(this.taskToAdd).subscribe(() => {
-      console.log('ho?');
+      this.route.navigateByUrl('home')
     });
   }
 
