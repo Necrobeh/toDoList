@@ -16,6 +16,10 @@ export class TaskManagementService {
     return this.http.get<Task[]>(`${this.baseUrl}/getAll`);
   }
 
+  getTaskById(taskId : number) : Observable<Task>{
+    return this.http.get<Task>(`${this.baseUrl}/get/${taskId}`)
+  }
+
   addNewTask(content : Task) : Observable<Task> {
     return this.http.post<Task>(`${this.baseUrl}/add`, content)
   }
