@@ -1,0 +1,8 @@
+<div *ngFor="let days of week, let dayName = index">
+    <p>{{week[dayName]}}</p>
+    <div class="hour"
+    *ngFor="let hours of day, let i = index"
+    [ngStyle]="{backgroundColor: i%2 === 0 ? 'gray' : 'lightGray'}">
+        {{day[i]}}
+    </div>
+</div>
