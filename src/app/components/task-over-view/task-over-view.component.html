@@ -1,5 +1,8 @@
-<p *ngFor="let task of taskList">
-    {{task.name}}
-</p>
+<div class="container-fluid red">
+    <p *ngFor="let task of taskList">
+        {{task.name}}
+    </p>
+</div>
+<app-week-grid></app-week-grid>
 
 <button [routerLink]="['/new-task']">New task?</button>
