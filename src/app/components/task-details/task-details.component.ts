@@ -10,19 +10,35 @@ import { TaskManagementService } from 'src/app/services/task-management.service'
 })
 export class TaskDetailsComponent {
 
-  idFound : any = 0;
-  taskFound : Task = new Task(0,'','','','','',new Date(), new Date(), new Date,'','');
+  idFound: any = 0;
+  taskFound: Task = new Task(0, '', '', '', '', '', new Date(), new Date(), new Date, '', '');
 
-  constructor(private route : ActivatedRoute, private taskS : TaskManagementService){
+  constructor(private route: ActivatedRoute,
+    private taskS: TaskManagementService,
+    private router: Router) {
 
     this.searchForId();
-    this.taskS.getTaskById(this.idFound).subscribe((data)=>this.taskFound = data);
-    
+    this.getTask();
   }
 
-  searchForId() : void {
-    this.route.paramMap.subscribe((param)=>{
+  searchForId(): void {
+    this.route.paramMap.subscribe((param) => {
       this.idFound = param.get('id');
     })
-}
+  }
+
+  getTask(): void {
+    this.taskS.getTaskById(this.idFound).subscribe((data) => {
+      this.taskFound = data
+    }).add(() => {
+      this.taskFound.id === 0 ? this.redirect() : null;
+    })
+  }
+
+  redirect(): void {
+    if (this.taskFound.id === 0) {
+      this.router.navigateByUrl('home')
+    }
+  }
+
 }
